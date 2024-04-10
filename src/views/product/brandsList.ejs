@@ -1,0 +1,44 @@
+<%- include('../partials/head.ejs') %>
+    <link href="/styles/brands.css" rel="stylesheet">
+
+    <%- include('../partials/header.ejs') %>
+
+        <main class="main flex center-x">
+
+            <div class="div__main max-width-1365px height-full" >
+
+
+                <section class="allBrands">
+    
+                    <h3>NUESTRAS MARCAS</h3>
+    
+                    <div class="brands-list"> 
+                        <% brands.forEach(brand => { %>
+                    
+                            <article class="brandCard">
+    
+                                <div>   <!-- Se renderizan de manera dinámica las imágenes de cada marca y sus links -->
+                                    <a href="/brands/<%= brand.brand_name %>">
+                                        <% images.forEach(image => { %>
+                                            <% if (image.match(brand.brand_name)) { %>
+                                                <img src="/img/brands/<%= image %>" alt="BOSS"></a>
+                                            <% } %>
+                                        <% }) %> 
+                                </div>
+                                <div>
+                                    <a href="#"><strong>VER PRODUCTOS</strong></a>
+                                </div>
+            
+                            </article>
+                        <% }) %>
+            
+                </section>
+                
+            </div>
+
+
+        </main> 
+    
+    <!-- Cierre del archivo brandsList.ejs -->
+
+    <%- include('../partials/footer.ejs') %>

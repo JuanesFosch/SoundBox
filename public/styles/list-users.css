@@ -1,0 +1,83 @@
+.main__listUser {
+	max-width: 1555px;
+	margin: auto;
+}
+
+.title-of-page {
+	display: flex;
+	justify-content: center;
+	margin: 15px;
+}
+
+.users {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+}
+
+.user-card {
+	width: 35%;
+	margin-bottom: 50px;
+	transition-duration: 0.5s;
+	border-radius: 10px;
+
+	a {
+		width: 100%;
+		height: 100%;
+		color: #000;
+	}
+
+	.a-user_card {
+		border: 2px solid #000;
+		border-radius: 10px;
+		overflow: hidden;
+		width: 100%;
+		height: 90%;
+		display: flex;
+		align-items: center;
+		background-color: white;
+
+		&:hover {
+			background: #ffd4c2;
+			scale: 1.1;
+		}
+	}
+}
+
+.img {
+	width: 50%;
+	height: 100%;
+
+	img {
+		width: 100%;
+		height: 100%;
+	}
+}
+
+.infoUser {
+	width: 50%;
+	margin: 0 10px 0 10px;
+}
+
+#name, #last, #email, #country{
+	padding: 7px 0 7px 0;
+	font-size: 15px;
+}
+
+.boton-accion-borrar{
+	border: 1px solid rgb(106, 106, 106);
+	border-radius: 3px;
+	padding: 3px;
+	-webkit-text-stroke: 0.3px;
+	background-color: white;
+}
+
+.ban{
+	position: relative;
+	left: 80px;
+	bottom: 8px;
+}
+.delete{
+	position: relative;
+	top: 15px;
+}

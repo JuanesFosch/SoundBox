@@ -1,0 +1,297 @@
+<body>
+
+    <header class="header flex flex-wrap center-x">
+
+        <div class="div__headerTop flex center-x width-full">
+
+            <section class="headerTop max-width-1365px flex width-full ">
+
+                <div class="comment flex center-y immediate-local-and-international-shipping">
+
+                    <i class="fa-solid fa-truck-plane i-width"></i>
+
+                    <p>
+                        Envíos locales e internacionales inmediatos
+                    </p>
+
+                </div>
+
+                <div class="top-navigation-bar access-and-purchase-buttons">
+                    <nav class="flex center-y">
+                        <ul class="flex width-full">
+                            <% if(locals.userIsLogged===false){ %>
+
+                                <li class="li_register-login flex width-full">
+
+                                    <a href="/users/register" class="register mW-768-flex center-y hidden mW-768-show">
+                                        <i class="fa-regular fa-user i-width"></i>
+                                        <p>Crear cuenta</p>
+                                    </a>
+
+                                    <a href="/users/login" class="login flex center-y">
+                                        <i class="fa-solid fa-arrow-right-to-bracket i-width"></i>
+                                        <p>Ingresar</p>
+                                    </a>
+
+                                </li>
+
+                                <% }else if(locals.userIsLogged===true && locals.userIsAdmin===false){ %>
+
+                                    <a href="/productCart" class="btn-cajita  button-orange flex flxCenter">
+                                        <img src="/img/svg/cajitaSBX.svg" class="svg-miCajita">
+                                        <p class="hidden mW-768-show">Mi cajita- 0 items - $0.00</p>
+                                    </a>
+
+                                    <li class="li_user dropdown">
+
+
+                                        <% if (locals.userLoggedIn.image) {%>
+
+                                            <div class="img-profile">
+                                                <img src="/img/users/<%=locals.userLoggedIn.image%>"
+                                                    alt="SoundBoxUser <%=locals.userLoggedIn.name%>">
+                                            </div>
+
+                                            <%} else {%>
+
+                                                <div class="img-profile">
+                                                    <i class="fa-sharp fa-solid fa-circle-user"></i>
+                                                </div>
+
+                                                <%} %>
+
+                                                    <div class="user-dropdown">
+                                                        <a href="/users/userProfile/<%=locals.userLoggedIn.id%>"
+                                                            class="flex width-full flex-wrap">
+
+                                                            <img src="/img/users/<%=locals.userLoggedIn.image%>"
+                                                                alt="SoundBoxUser/<%= locals.userLoggedIn.first_name %>/<%= locals.userLoggedIn.last_name %>"
+                                                                class="img_user-dropdown width-1_2">
+
+                                                            <div class="full-name width-1_8 block">
+                                                                <%= locals.userLoggedIn.first_name %>
+                                                                    <%= locals.userLoggedIn.last_name%>
+                                                            </div>
+
+                                                        </a>
+
+                                                        <a href="users/userProfile/<%=locals.userLoggedIn.id%>" class="flex width-full">
+                                                            <i class="fa-solid fa-gear"></i>
+                                                            <p>Ajustes</p>
+                                                        </a>
+
+                                                        <!-- <a href="#" class="flex width-full">
+                                                            <i class="fa-solid fa-pen-to-square"></i>
+                                                            <p>Editar</p>
+                                                        </a> -->
+
+                                                        <a href="/users/logOut" class="flex width-full">
+                                                            <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                                                            <p>Salir</p>
+                                                        </a>
+
+                                                    </div>
+
+                                    </li>
+
+                                    <% }else if(locals.userIsLogged===true && locals.userIsAdmin===true){ %>
+
+                                        <li class="li_user admin">
+                                            <div class="admin-container">
+                                                <a href="/admin">
+                                                    <i class="fa-solid fa-user-tie"></i>
+                                                </a>
+                                            </div>
+                                        </li>
+
+                                        <li class="li_user dropdown">
+                                            <div>
+                                                <% if (locals.userLoggedIn.image) {%>
+                                                    <div class="img-profile">
+                                                        <img src="/img/users/<%=locals.userLoggedIn.image%>" alt="">
+                                                    </div>
+                                                    <%} else {%>
+                                                        <i class="fa-sharp fa-solid fa-circle-user"></i>
+                                                        <%} %>
+                                            </div>
+
+                                            <div class="user-dropdown">
+
+                                                <p><a href="/admin/profile/<%=locals.userLoggedIn.id%>"><img
+                                                            src="/img/users/<%=locals.userLoggedIn.image%>"
+                                                            alt="UserOfSoundBox<%=locals.userLoggedIn.name%><%=locals.userLoggedIn.id%>"></a>
+                                                </p>
+                                                <p><a href="/admin/profile/<%=locals.userLoggedIn.id%>"><i class="fa-solid fa-gear"></i>Ajustes</a></p>
+                                                <!-- <p><a href="#"><i class="fa-solid fa-pen-to-square"></i>Editar</a> -->
+                                                </p>
+                                                <p><a href="/users/logOut"><i
+                                                            class="fa-solid fa-arrow-right-from-bracket"></i>Salir</a>
+                                                </p>
+                                            </div>
+
+                                        </li>
+
+                                        <% } %>
+                        </ul>
+                    </nav>
+                </div>
+
+            </section>
+
+        </div>
+
+        <div class="div__headerBoottom flex center-x width-full">
+            
+            <section class="headerBottom flex width-full max-width-1365px">
+
+                <div class="div__btnSearch div__btnSearch--cell-phone">
+                    <a href="/products/search">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </a>
+                </div>
+
+                <div class="logoSbx fireldGeaderBottom">
+
+                    <a href="/" class="img-logoSBX">
+
+                        <img src="/img/svg/estandar.svg" alt="logoSbx" id="img-logoSBX img-vertical">
+                        <img src="/img/svg/estandar-horizontal.svg" alt="logoSbx" id="img-logoSBX img-horizontal" class="hidden">
+
+                    </a>
+
+                </div>
+
+                <div class="navContainer flex center-y fireldGeaderBottom">
+                    <nav>
+
+                        <div class="dropdowns">
+
+                            <li class="dropdown" id="catecories">
+
+                                <div class="name-dropdown">
+                                    <a href="/#categories">Categorías</a><i class="fa-solid fa-chevron-down"></i>
+                                </div>
+
+                                <div class="dropdown-content">
+                                    <a href="/categories/Guitarras">Guitarras</a>
+                                    <a href="/categories/Accesorios">Accesorios</a>
+                                    <a href="/categories/Efectos">Efectos</a>
+                                    <a href="/categories/Pianos">Teclados</a>
+                                    <a href="/categories/Orquestas">Orquesta</a>
+                                    <a href="/categories/Amplificadores">Amplificadores</a>
+                                    <a href="/categories/Segunda-mano">Segunda mano</a>
+                                    <a href="/categories/Grabaciones">Grabación</a>
+                                </div>
+
+                            </li>
+
+                            <li class="dropdown alltheproducts mW-768-hidden mW-1024-flex">
+
+                                <div class="name-dropdown">
+                                    <a href="/products/allTheProducts">Nuestros productos</a>
+                                </div>
+
+                            </li>
+
+                            <li class="dropdown">
+
+                                <div class="name-dropdown"> 
+                                    <a href="#">Instrumentos musicales</a><i
+                                        class="fa-solid fa-chevron-down"></i>
+                                </div>
+
+                                <div class="dropdown-content">
+                                    <a href="#">Guitarras</a>
+                                    <a href="#">Trompetas</a>
+                                    <a href="#">Violines</a>
+                                    <a href="#">Baterías</a>
+                                    <a href="#">Acústica</a>
+                                </div>
+
+                            </li>
+
+                            <li class="dropdown top-sales mW-768-hidden mW-1024-flex">
+
+                                <div class="name-dropdown">
+                                    <a href="/#top-sales">Top de ventas</a>
+                                </div>
+
+                            </li>
+
+                            <li class="dropdown">
+
+                                <div class="name-dropdown">
+                                    <a href="#accessories">Accesorios</a><i class="fa-solid fa-chevron-down"></i>
+                                </div>
+
+                                <div class="dropdown-content">
+                                    <a href="#">Audífonos</a>
+                                    <a href="#">Baquetas</a>
+                                    <a href="#">Micrófonos</a>
+                                </div>
+
+                            </li>
+
+                            <li class="dropdown offers mW-768-hidden mW-1024-flex">
+
+                                <div class="name-dropdown ">
+                                    <a href="#offers">Ofertas</a>
+                                </div>
+
+                            </li>
+
+                            <li class="dropdown">
+
+                                <div class="name-dropdown">
+                                    <a href="/brands/allBrands">Marcas</a><i class="fa-solid fa-chevron-down"></i>
+                                </div>
+
+                                <div class="dropdown-content">
+                                    <a href="/brands/BOSS">BOSS</a>
+                                    <a href="/brands/DAddario">D'Addario</a>
+                                    <a href="/brands/Epiphone">Epiphone</a>
+                                    <a href="/brands/Gibson">Gibson</a>
+                                    <a href="/brands/Marshall">Marshall</a>
+                                    <a href="/brands/Yamaha">Yamaha</a>
+                                    <a href="/brands/Zildjian">Zildjian</a>
+                                </div>
+
+                            </li>
+
+
+                        </div>
+
+                        <li class="li__btnSearch li__btnSearch--tablet-computer">
+                            <a href="/products/search">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                            </a>
+                        </li>
+
+
+
+                    </nav>
+                </div>
+                
+                <div class="menu-burguer" id="menu-burguer">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+                <ul class="menu-burguer-desplegable flex flxCenter" id="menuBurguerDesplegable" onclick="show()">
+
+                    <li class="closeMenu">
+                        <i class="fa-solid fa-xmark" aria-hidden="true" id="closeMenu" onclick="hide()"></i>
+                    </li>
+
+                    <a href="/">Inicio<span class="bar-bottom"></span></a>
+                    <a href="/productCart">Mi cajita<span class="bar-bottom"></span></a>
+                    <a href="/products/allTheProducts">Nuestro productos<span class="bar-bottom"></span></a>
+                    <a href="/allCategories">Categorías<span class="bar-bottom"></span></a>
+                    <a href="/brands/allBrands">Marcas<span class="bar-bottom"></span></a>
+                    <a href="/contactUs">Quienes somos?<span class="bar-bottom"></span></a>
+                    
+                </ul>
+
+            </section>
+
+        </div>
+
+    </header>
