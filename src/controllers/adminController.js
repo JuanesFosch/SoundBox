@@ -20,7 +20,7 @@ const adminController = {
 
 			res.render("user/usersList.ejs", { full_user });
 		} catch (err) {
-			/* console.log(err); */
+			console.log(err)
 			res.render("errors/404.ejs");
 		}
 	},
@@ -45,7 +45,7 @@ const adminController = {
             const colorName = products[3]['dataValues'].Colores[0]['dataValues'].color_name;
             console.log("Color Name: ", colorName);
             console.log("products: ",products.length); */
-			console.log(products);
+			/* console.log(products); */
 			res.render("product/allTheProducts.ejs", { products });
 		} catch (err) {
 			/* console.log(err); */

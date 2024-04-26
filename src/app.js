@@ -10,7 +10,6 @@ const session = require("express-session");
 const cookieParser = require("cookie-parser"); //--> Requerimos el módulo 'cookieParser' para manejar las cookies.
 const userLoggedMiddleware = require("./middlewares/userLoggedMiddleware");
 
-
 const cors = require('cors');
 // Habilitamos CORS para todas las solicitudes a nuestra API
 app.use(cors());
@@ -87,10 +86,12 @@ app.use((req, res, next) => {
 });
 
 //************************************* Listen Server *************************************\\
-const port = process.env.PORT || 3020;
 
-app.listen(`${port}`, () => {
+const port = process.env.PORT || 3000;
+
+app.listen({ port, host: "0.0.0.0" }, () => {
 	console.log(`Servidor funcionando en: http://localhost:${port}`);
-});
+}); 
+
 
 //*******************************************************************************************\\

@@ -9,6 +9,8 @@ const { log } = require("console");
 const { validationResult } = require("express-validator");
 const { Op, where } = require("sequelize");
 
+
+
 const mainController = {
 	index: async (req, res) => {
 		try {
